@@ -65,3 +65,5 @@ x
 (let ((altura (read)) (largura (read)))
   (printf "valor: ~v"(* altura largura))
    )
+
+;atividade: calcule o delta e duas raizes
