@@ -24,3 +24,44 @@
 
 (let ((altura 12) (largura 20)) (* altura largura));no primeiro arg defino var, no segundo, funcao
 
+(define x 3)
+(set! x 1024)
+x
+
+(let (
+      (value 0))
+  (set! value 10)
+  value
+  )
+
+;////////////////////////////
+(define y 2025)
+(display "ok")
+(newline)
+
+(printf "y = ~s\n" y)
+
+(printf "Valor: ~a, ~a, ~a, ~a\n" 1990 #t y "Hello")
+
+(printf "Outro: ~v, ~v, ~v, ~v\n" 1990 #t y "Hello")
+
+(display "Digite o valor de a: ")
+(define a (read))
+(display a)
+(newline)
+
+(display "Troque o valor de a: ")
+(set! a (read))
+(display a)
+(newline)
+
+(let ((y 0))
+  (display "Digite o valor de y: ")
+  (set! y (read))
+  (printf "Valor de y: '~a'\n" y)
+  )
+
+(display "De um valor de altura e largura (numero, ENTER, numero, ENTER): ")
+(let ((altura (read)) (largura (read)))
+  (printf "valor: ~v"(* altura largura))
+   )
