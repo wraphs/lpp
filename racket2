@@ -1,0 +1,14 @@
+#lang racket
+;atividade: leia a, b, c no teclado e exiba as raizes
+(printf "Digite o valor de a: ")
+(define a (read))
+(printf "Digite o valor de b: ")
+(define b (read))
+(printf "Digite o valor de c: ")
+(define c (read))
+
+(define delta (- (* b b) (* 4 a c)))
+(printf "Raiz positiva: ~v, raiz negativa: ~v\n"
+        (/ (+ (- b) (sqrt delta)) (* 2 a))
+        (/ (- (- b) (sqrt delta)) (* 2 a))
+        )
