@@ -1,0 +1,41 @@
+#lang racket
+
+;teste listas
+
+(cons 2 (let ((x '())) (cons x x)) )
+(cons 2 (let ((x '()))
+          (cons x x)
+          (cons x x)) )
+(cons 2 (let ((x '())) x) )
+(let ((x '())) (cons x x))
+(let ((x 'Paris) (y '(Roma Berlin))) (cons 'x y))
+(let ((x 'Paris) (y '(Roma Berlin))) (cons x y))
+(let ((x 2) (y '(Roma Berlin))) (cons x y))
+
+(let ((n '())) (cons (cons 3 n) n))
+
+;atividade: construir sempre começando com lista vazia
+;( (1 2 3) 4 (5) )
+;( banana (uva pera) (maca) abacate)
+;( ( ( 1 ) ) 2 ( ( 3 ) ) )
+(printf "\natividade\n\n")
+
+(cons (cons (cons 1 (cons 2 (cons 3 '()))) '())
+(cons 4 (cons (cons 5 '()) '())))
+
+(cons 'banana (cons (cons 'uva (cons 'pera '())) (cons (cons 'maca '()) (cons 'abacate '()))))
+
+(cons (cons (cons 1 '()) '())(cons 2 (cons (cons (cons 3 '()) '()) '())))
+
+;inserção e remoção
+(printf "\ninserção e remoção\n\n")
+
+(car '((1) (2) (3)))
+(car (cdr (cdr '((1) (2) (3))))) ;mostrar o (3)
+(cddr '(1 2 3)) ;tambem
+
+;atividade tirar elementos
+
+(define L '( (1 2 3) ( (a b c) ) @ (m n o) ))
+
+(caddr L)
