@@ -1,0 +1,108 @@
+#lang racket
+
+;definicao de funcao recursiva (fatorial)
+(define fatorial
+ (lambda (n)
+ (if (zero? n)
+ 1
+ (* n (fatorial (- n 1))))))
+
+;chamada de funcao
+(fatorial 5)
+
+;soma fatorial
+(define soma-fat
+  (lambda (n)
+    (if (zero? n)
+        0
+        (+ (fatorial n) (soma-fat (- n 1))))))
+
+(soma-fat 5)
+(soma-fat 10)
+
+;comprimento da lista
+(define comprimento
+  (lambda (L)
+    (if (null? L)
+        0
+        (+ 1 (comprimento (cdr L))))))
+
+;rodando a funcao
+(comprimento '(2 3 4 5 5 5))
+
+;soma
+(define soma
+  (lambda (L)
+    (if (null? L)
+        0
+        (+ (car L) (soma (cdr L))))))
+
+;rodando
+(soma '(2 3 5))
+
+;conta zeros
+(define contazero
+  (lambda (L)
+    (if (null? L)
+        0
+        (if (equal? (car L) 0)
+            (+ 1 (contazero (cdr L)))
+            (contazero (cdr L))
+         )
+     )
+   )
+ )
+
+
+;rodandoooo
+(contazero '(0 0 0 0))
+
+;construindo lista de 1'ns
+(define lista1
+  (lambda (n)
+    (if (zero? n)
+        '()
+        (cons 1 (lista1 (- n 1)))
+        )
+    )
+  )
+
+;rodando1
+(lista1 10)
+
+;somente pares
+(define pares
+  (lambda (L)
+    (if (null? L)
+        '()
+        (if (even? (car L))
+            (cons (car L) (pares (cdr L)))
+            (pares (cdr L)))
+        )
+    )
+  )
+
+;rodando pares
+(pares '(2 2 2 1 6 3 5))
+
+;lista com elementos maiores que n
+(define maiores
+  (lambda (n L)
+    (if (null? L)
+        '()
+        (if (> (car L) n)
+        (cons (car L) (maiores n (cdr L)))
+        (maiores n (cdr L)))
+        )
+    )
+  )
+
+;rodando maiores
+(maiores 5 '(5 2 8 8))
+
+;concatena duas listas NAO FUNCIONANDO TERMINAR
+(define concatena
+  (lambda (L L1)
+    (if (AND (null? L) (null? L1))
+        '()
+        (cons (car L) (concatena (cdr L) L1)))))
